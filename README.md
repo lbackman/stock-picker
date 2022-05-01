@@ -1,6 +1,6 @@
 # stock-picker
 The stock picker takes in an array of values (integers) and returns an array
-with the indeces of the values that have the greatest "profit"
+with the indices of the values that have the greatest "profit"
 
 Examples:
 
