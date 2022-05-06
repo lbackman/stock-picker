@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Principle: converts array with numbers to an array of differences
 # Ex. [17, 3, 6, 9, 15, 8, 6, 1, 10] => [-14, 3, 3, 6, -7, -2, -5, 9]
 # Then find the run of digits with the highest sum
@@ -39,7 +41,7 @@ def get_iterations_array(arr)
       hash[:end_index] = i + x
       hash[:length] = x
       hash[:sum] = a.sum
-      iterations << hash if hash[:sum] > 0
+      iterations << hash if (hash[:sum]).positive?
     end
   end
   iterations
@@ -56,10 +58,10 @@ def find_max_sum(arr)
 end
 
 def find_min_length(arr)
-  min_length = arr.min_by { |hash| hash[:length] }
+  arr.min_by { |hash| hash[:length] }
 end
 
-p "Enter an array of integers representing stock values for different days"
-arr = gets.chomp.split(" ").compact.map { |n| n = n.to_i}
+p 'Enter an array of integers representing stock values for different days'
+arr = gets.chomp.split(' ').compact.map(&:to_i)
 p "Input array: #{arr}"
 p "Best strategy: #{stock_picker(arr)}"
